@@ -75,42 +75,36 @@ int main() {
 
     while (true) {
         input = getch(); // get user input
-
-        if (input == 's' && y < HEIGHT - 1) {
-             system("cls");
+        system("cls");
+        if (input == 's' && y < HEIGHT - 1) { 
             myMap[y][x] = temp_tile;
             y++;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
-            PrintMap();
         }
         else if (input == 'd' && x < WIDTH - 1) {
-             system("cls");
             myMap[y][x] = temp_tile;
             x++;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
-            PrintMap();
         }
         else if (input == 'w' && y > 0) {
-             system("cls");
             myMap[y][x] = temp_tile;
             y--;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
-            PrintMap();
         }
         else if (input == 'a' && x > 0) {
-             system("cls");
             myMap[y][x] = temp_tile;
             x--;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
-            PrintMap();
+            
         }
         else if(input == 'q'){
             break;
         };
+        PrintMap();
     }
     system("PAUSE");
     return 0;
