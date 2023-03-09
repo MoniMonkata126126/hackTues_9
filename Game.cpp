@@ -41,7 +41,11 @@ void clearPlayer(int x, int y) {
 char myMap[HEIGHT][WIDTH];
 
 void PrintMap() {
+<<<<<<< HEAD
     system("cls");
+=======
+   
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
     cout << "(" << x << ',' << y << ")" << endl;
     GrassColor();
     for (int i = 0; i < HEIGHT; i++) {
@@ -113,47 +117,75 @@ int main() {
 /*
     while (true) {
         input = getch(); // get user input
+<<<<<<< HEAD
 
         if (input == 's' && y < HEIGHT - 1) {
     
+=======
+        system("cls");
+        if (input == 's' && y < HEIGHT - 1) { 
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
             myMap[y][x] = temp_tile;
             y++;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
+<<<<<<< HEAD
              system("cls");
             PrintMap();
             
         }
         else if (input == 'd' && x < WIDTH - 1) {
             
+=======
+        }
+        else if (input == 'd' && x < WIDTH - 1) {
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
             myMap[y][x] = temp_tile;
             x++;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
+<<<<<<< HEAD
              system("cls");
             PrintMap();
         }
         else if (input == 'w' && y > 0) {
          
+=======
+        }
+        else if (input == 'w' && y > 0) {
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
             myMap[y][x] = temp_tile;
             y--;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
+<<<<<<< HEAD
              system("cls");
             PrintMap();
         }
         else if (input == 'a' && x > 0) {
            
+=======
+        }
+        else if (input == 'a' && x > 0) {
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
             myMap[y][x] = temp_tile;
             x--;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
+<<<<<<< HEAD
              system("cls");
             PrintMap();
+=======
+            
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
         }
         else if(input == 'q'){
             break;
         };
+<<<<<<< HEAD
+=======
+        PrintMap();
+>>>>>>> 4ffbdc370ccffee70829e1eb9b4b128019e0daec
     }
     system("PAUSE");
     */
