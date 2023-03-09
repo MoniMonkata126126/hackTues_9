@@ -1,10 +1,11 @@
 #include <iostream>
 #include <Windows.h>
+#include <conio.h>
 #include <fstream>
 
 using namespace std;
 
-const int HEIGHT = 5, WIDTH = 20;
+const int HEIGHT = 30, WIDTH = 55;
 int x = 0, y = 0; //Primary player coordinates...global :-O
 
 void GrassColor() {
@@ -31,14 +32,12 @@ void RedColor() {
 char myMap[HEIGHT][WIDTH];
 
 void PrintMap() {
+   
     cout << "(" << x << ',' << y << ")" << endl;
     GrassColor();
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
-            if (myMap[i][j] == '\n'){
-                i++;
-            }
-            else if (myMap[i][j] == '.') {
+            if (myMap[i][j] == '.') {
                 GrassColor();
                 cout << myMap[i][j];
             }
@@ -75,30 +74,34 @@ int main() {
     PrintMap();
 
     while (true) {
-        cin >> input;
+        input = getch(); // get user input
 
         if (input == 's' && y < HEIGHT - 1) {
+             system("cls");
             myMap[y][x] = temp_tile;
             y++;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
             PrintMap();
         }
-        else if (input == 'e' && x < WIDTH - 1) {
+        else if (input == 'd' && x < WIDTH - 1) {
+             system("cls");
             myMap[y][x] = temp_tile;
             x++;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
             PrintMap();
         }
-        else if (input == 'n' && y > 0) {
+        else if (input == 'w' && y > 0) {
+             system("cls");
             myMap[y][x] = temp_tile;
             y--;
             temp_tile = myMap[y][x];
             myMap[y][x] = '@';
             PrintMap();
         }
-        else if (input == 'w' && x > 0) {
+        else if (input == 'a' && x > 0) {
+             system("cls");
             myMap[y][x] = temp_tile;
             x--;
             temp_tile = myMap[y][x];
@@ -108,9 +111,7 @@ int main() {
         else if(input == 'q'){
             break;
         };
-        
     }
-
     system("PAUSE");
     return 0;
 }
