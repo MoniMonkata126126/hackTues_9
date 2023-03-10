@@ -1,20 +1,14 @@
 #include <iostream>
-#include <Windows.h>
 #include <fstream>
-#include "movement.hpp"
 #include "print_map.hpp"
+#include "new_map.hpp"
 
 using namespace std;
 
 
-
-int main() {
-
-    int x = 28, y = 15;
-
-    char my_map[30][55];
-    int current_map = 1;
-    ifstream map_file("1.txt");
+void new_map(char my_map[30 ][55], string filename){
+     system("cls");
+     ifstream map_file(filename);
      for (int i = 0; i < HEIGHT; i++) {
         string line;
         getline(map_file, line);
@@ -23,15 +17,4 @@ int main() {
         }
     }
     map_file.close();
-
-    system("cls");
-
-    PrintMap(my_map); 
-
-    while(true){
-        movement(x, y, my_map, current_map);
-
-    }
-
-    return 0;
 }

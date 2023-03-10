@@ -1,0 +1,1 @@
+void teleport(int& x, int& y, int& current_map, char my_map[30][55]);

@@ -1,1 +1,1 @@
-void movement(int&, int&, char[][55]);
+void movement(int&, int&, char[][55], int&);
