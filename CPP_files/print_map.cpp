@@ -4,31 +4,24 @@
 
 using namespace std; 
 
-#define GrassColor() SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+#define GreenColor() SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 #define NormalColor() SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 #define BlueColor() SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 #define RedColor() SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY);
 
-void PrintMap(char my_map[][30]) {
-    GrassColor();
+void PrintMap(char my_Map[30][55]) {
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
-            if (my_map[i][j] == '.') {
-                GrassColor();
-                cout << my_map[i][j];
-            }
-            else if (my_map[i][j] == '~'){
+            if (my_Map[i][j] == '@') {
                 BlueColor();
-                cout << my_map[i][j];
             }
-            else if (my_map[i][j] == '@') {
-                RedColor();
-                cout << my_map[i][j];
+            else if(my_Map[i][j] == '$'){
+                RedColor()
             }
             else{
                 NormalColor();
-                cout << my_map[i][j];
             }
+            cout << my_Map[i][j];
         }
         cout << endl;
     }

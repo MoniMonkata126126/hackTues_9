@@ -14,37 +14,53 @@ void drawPlayer(int x, int y) {
 }
 
 void clearPlayer(int x, int y) {
-    printf("\033[%d;%dH*", (y), (x));
+    printf("\033[%d;%dH.", (y), (x));
 }
 
-void movement(int* x, int* y){
+void movement(int& x, int& y, char my_map[30][55]){
 
-    drawPlayer(*x, *y);
+    drawPlayer(x, y);
 
     char arrow_key = getch();
 
-    switch((arrow_key)) {
-        case KEY_UP:
-            clearPlayer(*x, *y);
-            *y--;
+    switch(arrow_key) {
+        case 'w':
+            if(my_map[y - 1][x] == '.'){
+                clearPlayer(x, y);
+                y--;
+            }
             break;
 
-        case KEY_DOWN:
-            clearPlayer(*x, *y);
-            *y++;
+        case 's':
+            if(my_map[y + 1][x] == '.'){
+                clearPlayer(x, y);
+                y++;
+            }
             break;
 
-        case KEY_LEFT:
-            clearPlayer(*x, *y);
-            *x--;
+        case 'a':
+            if(my_map[y][x - 1] == '.'){
+                clearPlayer(x, y);  
+                x--;    
+            }
             break;
 
-        case KEY_RIGHT:
-            clearPlayer(*x, *y);
-            *x++;
+        case 'd':
+            if(my_map[y][x + 1] == '.'){
+                clearPlayer(x, y);
+                x++;
+            }
             break;
+        
+        case 'q':
+            system("cls");
+            exit(69);
 
         default:
             break;
     }
 }
+
+//firewall config
+//virus search 
+//voln search 
