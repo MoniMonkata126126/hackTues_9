@@ -1,8 +1,8 @@
 #include <iostream>
 #include <Windows.h>
 #include <fstream>
-#include <movement.hpp>
-#include <print_map.hpp>
+#include "movement.hpp"
+#include "print_map.hpp"
 
 using namespace std;
 
@@ -33,13 +33,13 @@ void teleport(int* x, int* y) {
 
 int main() {
 
-    int x = 23, y = 15;
+    int x = 27, y = 15;
 
-    int my_map[55][30];
+    char my_map[55][30];
 
     char temp_tile;
 
-    ifstream map_file("Level.txt");
+    ifstream map_file("1.txt");
     string myText;
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
@@ -47,12 +47,14 @@ int main() {
         }
     }
     map_file.close();
+    cout << my_map << endl;
 
     my_map[23][15] = '@';
 
+
     PrintMap(my_map); 
     while(true){
-        movement(my_map, &x, &y, &temp_tile);
+        movement(&x, &y);
         teleport(&x, &y);
     }
     return 0;

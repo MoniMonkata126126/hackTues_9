@@ -1,6 +1,6 @@
 #include <conio.h>
 #include <iostream>
-#include <print_map.hpp>
+#include "print_map.hpp"
 
 using namespace std;
 
@@ -10,44 +10,40 @@ using namespace std;
 #define KEY_RIGHT 77
 
 void drawPlayer(int x, int y) {
-    // gotoxy(x, y, '@');
     printf("\033[%d;%dH@", (y), (x));
 }
 
-void clearPlayer(int x, int y, char temp_tile) {
-    printf("\033[%d;%dH%c", (y), (x), temp_tile);
+void clearPlayer(int x, int y) {
+    printf("\033[%d;%dH*", (y), (x));
 }
 
-void movement(int my_map[][30], int* x, int* y, char* temp_tile){
+void movement(int* x, int* y){
 
-    char temp_tile;
-    int arrow_key = 0;
-    arrow_key = 0;
-    switch((arrow_key=getch())) {
+    drawPlayer(*x, *y);
+
+    char arrow_key = getch();
+
+    switch((arrow_key)) {
         case KEY_UP:
-            clearPlayer(*x, *y, *temp_tile);
+            clearPlayer(*x, *y);
             *y--;
-            *temp_tile = my_map[*y][*x];
-            drawPlayer(*x, *y);
             break;
+
         case KEY_DOWN:
-            clearPlayer(*x, *y, *temp_tile);
+            clearPlayer(*x, *y);
             *y++;
-            *temp_tile = my_map[*y][*x];
-            drawPlayer(*x, *y);
             break;
+
         case KEY_LEFT:
-            clearPlayer(*x, *y, *temp_tile);
+            clearPlayer(*x, *y);
             *x--;
-            *temp_tile = my_map[*y][*x];
-            drawPlayer(*x, *y);
             break;
+
         case KEY_RIGHT:
-            clearPlayer(*x, *y, *temp_tile);
+            clearPlayer(*x, *y);
             *x++;
-            *temp_tile = my_map[*y][*x];
-            drawPlayer(*x, *y);
             break;
+
         default:
             break;
     }
