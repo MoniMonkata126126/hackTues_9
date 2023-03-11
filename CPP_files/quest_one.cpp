@@ -3,13 +3,13 @@
 #include <windows.h>
 #include <fstream>
 #include "quest_class.hpp"
-#include "quest.hpp"
+#include "quest_one.hpp"
 
 using namespace std;
 
 
 
-void run_quest(){
+void run_quest_one(){
     system("cls");
 
     QuestAnswer q_ans_one("sudo ufw allow 22/tcp");
@@ -17,6 +17,7 @@ void run_quest(){
     QuestAnswer q_ans_three("sudo ufw allow 22/tcp");
 
     int right_answer = 0;
+
     string ans_input;
 
     cout << "sudo ufw allow 7777/tcp" << endl;
@@ -31,30 +32,28 @@ void run_quest(){
     cout << "Their port numbers are 22; 443; 22" << endl;
     cout << "Now it's your turn:" << endl;
 
-    while(right_answer < 3){
-        cin >> ans_input;
-        if(ans_input == q_ans_one.getQuestAnswer() && q_ans_one.getAnswered() == false){
+    while(right_answer != 3){
+        getline(cin, ans_input);
+
+        if(!(ans_input.compare(q_ans_one.getQuestAnswer()))  && q_ans_one.getAnswered() == false){
             right_answer++;
             q_ans_one.setAnswered(true);
+            cout << "Well done!" << endl;
         }
-        else{
-            cout << "Wrong input. Try again :)" << endl;
-        }
-        if(ans_input == q_ans_two.getQuestAnswer() && q_ans_two.getAnswered() == false){
+        else if(!(ans_input.compare(q_ans_two.getQuestAnswer())) && q_ans_two.getAnswered() == false){
             right_answer++;
             q_ans_two.setAnswered(true);
+            cout << "Well done!" << endl;
         }
-        else{
-            cout << "Wrong input. Try again :)" << endl;
-        }
-        if(ans_input == q_ans_three.getQuestAnswer() && q_ans_three.getAnswered() == false){
+        else if(!(ans_input.compare(q_ans_three.getQuestAnswer())) && q_ans_three.getAnswered() == false){
             right_answer++;
             q_ans_three.setAnswered(true);
+            cout << "Well done!" << endl;
         }
         else{
             cout << "Wrong input. Try again :)" << endl;
         }
     }
 
-    cout << "Congratulations! You set up our fire wall!" << endl;
+    system("cls");
 }

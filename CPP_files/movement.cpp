@@ -3,14 +3,30 @@
 #include "movement.hpp"
 #include "print_map.hpp"
 #include "teleport.hpp"
-#include "quest.hpp"
+#include "quest_one.hpp"
+#include "quest_two.hpp"
+#include "quest_three.hpp"
+#include "quest_four.hpp"
 
 using namespace std;
 
-#define KEY_UP 72
-#define KEY_DOWN 80
-#define KEY_LEFT 75
-#define KEY_RIGHT 77
+
+
+void check_for_map_npc(int& current_map){
+    if(current_map == 1){
+        run_quest_one();
+    }
+    else if(current_map == 2){
+        run_quest_two();
+    }
+    else if(current_map == 3){
+        run_quest_three();
+    }
+    else if(current_map == 4){
+        run_quest_four();
+    }
+}
+
 
 void drawPlayer(int x, int y) {
     printf("\033[%d;%dH@", (y), (x));
@@ -33,7 +49,7 @@ void movement(int& x, int& y, char my_map[30][55], int& current_map){
             }
             else if(my_map[y - 2][x] == '$' || my_map[y - 1][x] == '$'){
                 system("cls");
-                run_quest();
+                check_for_map_npc(current_map);
                 PrintMap(my_map);
             }
             else if(my_map[y - 1][x] == '.'){
@@ -48,7 +64,7 @@ void movement(int& x, int& y, char my_map[30][55], int& current_map){
             }
             else if(my_map[y + 2][x] == '$' || my_map[y + 1][x] == '$'){
                 system("cls");
-                run_quest();
+                check_for_map_npc(current_map);
                 PrintMap(my_map);
             }
             else if(my_map[y + 1][x] == '.'){
@@ -63,7 +79,7 @@ void movement(int& x, int& y, char my_map[30][55], int& current_map){
             }
             else if(my_map[y][x - 2] == '$' || my_map[y][x - 1] == '$'){
                 system("cls");
-                run_quest();
+                check_for_map_npc(current_map);
                 PrintMap(my_map);
             }
             else if(my_map[y][x - 1] == '.'){
@@ -81,7 +97,7 @@ void movement(int& x, int& y, char my_map[30][55], int& current_map){
             }
             else if(my_map[y][x + 2] == '$' || my_map[y][x + 1] == '$'){
                 system("cls");
-                run_quest();
+                check_for_map_npc(current_map);
                 PrintMap(my_map);
             }
             else if(my_map[y][x + 1] == '.'){
@@ -98,7 +114,3 @@ void movement(int& x, int& y, char my_map[30][55], int& current_map){
             break;
     }
 }
-
-//firewall config
-//virus search 
-//voln search 
